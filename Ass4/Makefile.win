@@ -1,0 +1,36 @@
+# Project: bouncing ball  ass4
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = IntPipeX2.o vTask.o bouncing4.o $(RES)
+LINKOBJ  = IntPipeX2.o vTask.o bouncing4.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32  -g3 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = "bouncing ball ass4.exe"
+CXXFLAGS = $(CXXINCS)   -ansi -g3
+CFLAGS = $(INCS)   -ansi -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before "bouncing ball ass4.exe" all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "bouncing ball ass4.exe" $(LIBS)
+
+IntPipeX2.o: IntPipeX2.cpp
+	$(CPP) -c IntPipeX2.cpp -o IntPipeX2.o $(CXXFLAGS)
+
+vTask.o: vTask.c
+	$(CPP) -c vTask.c -o vTask.o $(CXXFLAGS)
+
+bouncing4.o: bouncing4.cpp
+	$(CPP) -c bouncing4.cpp -o bouncing4.o $(CXXFLAGS)
